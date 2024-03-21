@@ -48,7 +48,7 @@ html {
 .etch__box {
     color: var(--color-white);
     flex: 1;
-    transition: all 0.225s;
+    transition: all 0.3s ease-out;
 }
 
 .etch__color-box {
@@ -97,4 +97,10 @@ html {
 
 .etch__colors {
     margin-bottom: 150rem;
+}
+
+.is-used {
+    outline-offset: 25px;
+    outline: 5px solid var(--czech-red);
+    transition: all 0.3s;
 }

@@ -1,7 +1,7 @@
 const rootEl = document.querySelector('html');
 
-const rangeInputEl = document.querySelector('.range__input');
-const rangeValueEl = document.querySelector('.range__value');
+const rangeInputEl = document.querySelector('.range-input');
+const rangeValueEl = document.querySelector('.range-value');
 const rangeBtnEl = document.querySelector('.range-btn');
 
 const etchFlexContEl = document.querySelector('.etch__flex-cont');
@@ -44,43 +44,40 @@ etchFlexContEl.style.height = `${etchFlexContElWidth}px`;
 
 // Changing between colors
 
-const colorBoxContEl = document.querySelector('.colors');
-let currentColor = '#fff';
+const colorBoxContEl = document.querySelector('.etch__colors');
+let currentColor = '';
 
 colorBoxContEl.addEventListener('click', e => {
     const colorIdentifier = e.target.className.split(' ')[1];
     switch(colorIdentifier) {
-        case 'color-box--1':
+        case 'etch__color-box--1':
             currentColor = 'var(--monaco-red)';
         break;
-        case 'color-box--2':
-            currentColor = 'var(--monaco-white)';
-        break;
-        case 'color-box--3':
+        case 'etch__color-box--2':
             currentColor = 'var(--estonia-blue)';
         break;
-        case 'color-box--4':
+        case 'etch__color-box--3':
             currentColor = 'var(--estonia-black)';
         break;
-        case 'color-box--5':
+        case 'etch__color-box--4':
             currentColor = 'var(--finland-blue)';
         break;
-        case 'color-box--6':
+        case 'etch__color-box--5':
             currentColor = 'var(--czech-red)';
         break;
-        case 'color-box--7':
+        case 'etch__color-box--6':
             currentColor = 'var(--uk-dark-blue)';
         break;
-        case 'color-box--8':
+        case 'etch__color-box--7':
             currentColor = 'var(--color-yellow)';
         break;
-        case 'color-box--9':
+        case 'etch__color-box--8':
             currentColor = 'var(--color-orange)';
         break;
-        case 'color-box--10':
+        case 'etch__color-box--9':
             currentColor = 'var(--color-purple)';
         break;
-        case 'color-box--11':
+        case 'etch__color-box--10':
             currentColor = 'var(--color-green)';
         break
     }
@@ -88,7 +85,7 @@ colorBoxContEl.addEventListener('click', e => {
 
 // Color and Clear Grid
 
-const clearBtnEl = document.querySelector('#clearBtn');
+const clearBtnEl = document.querySelector('#etch__clearBtn');
 etchFlexContEl.addEventListener('mouseover', colorAndClearGrid)
 
 function colorAndClearGrid(e) {
@@ -101,5 +98,13 @@ function colorAndClearGrid(e) {
     }
 }
 
+
+// Custom Clear Grid
+
+const customClearBtnEl = document.getElementById('etch__custom-clearBtn');
+
+customClearBtnEl.addEventListener('click', e => {
+    currentColor = 'transparent';
+})
 
 // !!!!!!!!!! mouseover event napravi sa intervalima

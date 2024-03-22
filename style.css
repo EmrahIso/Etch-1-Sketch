@@ -49,6 +49,13 @@ html {
     color: var(--color-white);
     flex: 1;
     transition: all 0.3s ease-out;
+    cursor: cell;
+}
+
+.etch__colors {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
 .etch__color-box {

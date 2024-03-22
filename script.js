@@ -3,6 +3,7 @@ const rootEl = document.querySelector('html');
 const rangeInputEl = document.querySelector('.range-input');
 const rangeValueEl = document.querySelector('.range-value');
 const rangeBtnEl = document.querySelector('.range-btn');
+const allEls = document.querySelectorAll('*');
 
 const etchFlexContEl = document.querySelector('.etch__flex-cont');
 
@@ -34,6 +35,9 @@ function createGrid(range){
         }
         etchFlexContEl.appendChild(etchFlexRowEl);
     }
+    allEls.forEach(el => {
+        el.classList.remove('is-used');
+    })
 }
 
 //Adjusting height of etchFlexContEl
@@ -41,22 +45,22 @@ function createGrid(range){
 const etchFlexContElWidth = etchFlexContEl.offsetWidth;
 etchFlexContEl.style.height = `${etchFlexContElWidth}px`;
 
+// Opacity Mode *1
 
-// Random Color 
+const opacityModeBtn = document.querySelector('#etch__opacityBtn');
+
+// Random Color *1
 
 const randomColorBtnEl = document.querySelector('#etch__random-colorBtn');
 let activateRandomMode = false;
 
-randomColorBtnEl.addEventListener('click', e => {
-    activateRandomMode = true;
-});
+// Changing between colors and Color and Clear Grid and Custom Clear Grid
 
-function chooseRandomColor() {
-    randomNumber = Math.round(Math.random()*10);
-    console.log(randomNumber);
-}
+const customClearBtnEl = document.getElementById('etch__custom-clearBtn');
 
-// Changing between colors
+
+const etchGameModesEl = document.querySelector('.etch__game-modes');
+const clearBtnEl = document.querySelector('#etch__clearBtn');
 
 const colorBoxContEl = document.querySelector('.etch__colors');
 const colorBoxEls = document.querySelectorAll('.etch__color-box');
@@ -66,7 +70,14 @@ colorBoxContEl.addEventListener('click', e => {
     colorBoxEls.forEach(colorBoxEl => {
         colorBoxEl.classList.remove('is-used');
     })
-    e.target.classList.add('is-used');
+    clearBtnEl.classList.remove('is-used');
+    customClearBtnEl.classList.remove('is-used');
+    randomColorBtnEl.classList.remove('is-used');
+    opacityModeBtn.classList.remove('is-used');
+    let colorClassArray = Array.from(e.target.classList);
+    if(colorClassArray.includes('etch__colors')) {} else {
+        e.target.classList.add('is-used');
+    }
     activateRandomMode = false;
     const colorIdentifier = e.target.className.split(' ')[1];
     switch(colorIdentifier) {
@@ -103,9 +114,6 @@ colorBoxContEl.addEventListener('click', e => {
     }
 })
 
-// Color and Clear Grid
-
-const clearBtnEl = document.querySelector('#etch__clearBtn');
 etchFlexContEl.addEventListener('mouseover', colorAndClearGrid)
 
 function colorAndClearGrid(e) {
@@ -148,18 +156,73 @@ function colorAndClearGrid(e) {
         }
         eTargetEl.style.backgroundColor = `${currentColor}`;
         clearBtnEl.addEventListener('click', e => {
+            activateRandomMode = false;
             eTargetEl.style.backgroundColor = '';
+            e.target.classList.add('is-used');
+            currentColor = '';
+            colorBoxEls.forEach(colorBoxEl => {
+                colorBoxEl.classList.remove('is-used');
+            })
+            opacityModeBtn.classList.remove('is-used');
+            customClearBtnEl.classList.remove('is-used');
+            randomColorBtnEl.classList.remove('is-used');
+        })
+        customClearBtnEl.addEventListener('click', e => {
+            activateRandomMode = false;
+            e.target.classList.add('is-used');
+            clearBtnEl.classList.remove('is-used');
+            randomColorBtnEl.classList.remove('is-used');
+            opacityModeBtn.classList.remove('is-used');
+            colorBoxEls.forEach(colorBoxEl => {
+                colorBoxEl.classList.remove('is-used');
+            })
+            currentColor = 'transparent';
         })
     }
 }
 
+// Removing class when click on whitespace
 
-// Custom Clear Grid
+document.addEventListener('click', e => {
+    let classArray = Array.from(e.target.classList);
+    if(!classArray.includes('is-used')){
+        activateRandomMode = false;
+        customClearBtnEl.classList.remove('is-used');
+        clearBtnEl.classList.remove('is-used');
+        randomColorBtnEl.classList.remove('is-used');
+        opacityModeBtn.classList.remove('is-used');
+        colorBoxEls.forEach(colorBoxEl => {
+            colorBoxEl.classList.remove('is-used');
+        })
+        currentColor = '';
+    }
+})
 
-const customClearBtnEl = document.getElementById('etch__custom-clearBtn');
+// Random Color *2
 
-customClearBtnEl.addEventListener('click', e => {
-    currentColor = 'transparent';
+randomColorBtnEl.addEventListener('click', e => {
+    activateRandomMode = true;
+    e.target.classList.add('is-used');
+    clearBtnEl.classList.remove('is-used');
+    opacityModeBtn.classList.remove('is-used');
+    colorBoxEls.forEach(colorBoxEl => {
+        colorBoxEl.classList.remove('is-used');
+    });
+    customClearBtnEl.classList.remove('is-used');
+});
+
+// Opacity Mode *2
+
+opacityModeBtn.addEventListener('click', e => {
+    e.target.classList.add('is-used');
+    activateRandomMode = false;
+    randomColorBtnEl.classList.remove('is-used');
+    clearBtnEl.classList.remove('is-used');
+    colorBoxEls.forEach(colorBoxEl => {
+        colorBoxEl.classList.remove('is-used');
+    });
+    customClearBtnEl.classList.remove('is-used');
+    currentColor = '';
 })
 
 // !!!!!!!!!! mouseover event napravi sa intervalima

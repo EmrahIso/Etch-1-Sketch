@@ -14,7 +14,7 @@ createGrid(16);
 // Changing value of rangeValueEl
 
 rangeInputEl.addEventListener('change', e => {
-    rangeValueEl.textContent = `${e.target.value}x${e.target.value}`;
+    rangeValueEl.textContent = `${e.target.value} x ${e.target.value}`;
 })
 
 
@@ -59,7 +59,6 @@ let activateRandomMode = false;
 const customClearBtnEl = document.getElementById('etch__custom-clearBtn');
 
 
-const etchGameModesEl = document.querySelector('.etch__game-modes');
 const clearBtnEl = document.querySelector('#etch__clearBtn');
 
 const colorBoxContEl = document.querySelector('.etch__colors');
@@ -266,5 +265,3 @@ opacityModeBtn.addEventListener('click', e => {
     customClearBtnEl.classList.remove('is-used');
     currentColor = 'var(--color-black)';
 })
-
-// !!!!!!!!!! mouseover event napravi sa intervalima

@@ -111,3 +111,23 @@ html {
     outline: 5px solid var(--czech-red);
     transition: all 0.3s;
 }
+
+.op-20 {
+    opacity: 20%
+}
+
+.op-40 {
+    opacity: 40%;
+}
+
+.op-60 {
+    opacity: 60%;
+}
+
+.op-80 {
+    opacity: 80%;
+}
+
+.op-100 {
+    opacity: 100%;
+}

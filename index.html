@@ -4,31 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Another teaching project of The Odin Project to learn and practice DOM manipulation skills. Also for practicing css grid. But mostly for practicing core development skills like googling and just solving problems.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Etch-a-Sketch</title>
 </head>
 <body>
     <h1 class="main-heading">Etch-a-Sketch Game</h1>
-    <input type="range" max="100" min="2" value="16" class="range-input">
-    <p class="range-value">16x16</p>
-    <button class="range-btn" type="submit">Create</button>
-    <div class="etch__flex-cont" oncontextmenu="return false;"></div>
-    <button id="etch__clearBtn">Clear</button>
-    <button id="etch__random-colorBtn">Random Color</button>
-    <button id="etch__custom-clearBtn">Custom Clear</button>
-    <button id="etch__opacityBtn">Opacity Mode</button>
-    <div class="etch__game-modes">
-        <div class="etch__colors">
-            <div class="etch__color-box etch__color-box--1"></div>
-            <div class="etch__color-box etch__color-box--2"></div>
-            <div class="etch__color-box etch__color-box--3"></div>
-            <div class="etch__color-box etch__color-box--4"></div>
-            <div class="etch__color-box etch__color-box--5"></div>
-            <div class="etch__color-box etch__color-box--6"></div>
-            <div class="etch__color-box etch__color-box--7"></div>
-            <div class="etch__color-box etch__color-box--8"></div>
-            <div class="etch__color-box etch__color-box--9"></div>
-            <div class="etch__color-box etch__color-box--10"></div>
+    <div class="layout">
+        <div class="layout__group1">
+            <div>
+                <span>Grid</span>
+                <p class="range-value">16 x 16</p>
+            </div>
+            <input type="range" max="100" min="2" value="16" class="range-input">
+            <button class="range-btn" type="submit">Create</button>
+            <button id="etch__clearBtn">Clear</button>
+            <button id="etch__random-colorBtn">Random Color</button>
+            <button id="etch__custom-clearBtn">Custom Clear</button>
+            <button id="etch__opacityBtn">Opacity Mode</button>
+        </div>
+        <div class="etch__flex-cont" oncontextmenu="return false;"></div>
+        <div class="layout__group3">
+            <div class="etch__colors">
+                <div class="etch__color-box etch__color-box--1"></div>
+                <div class="etch__color-box etch__color-box--2"></div>
+                <div class="etch__color-box etch__color-box--3"></div>
+                <div class="etch__color-box etch__color-box--4"></div>
+                <div class="etch__color-box etch__color-box--5"></div>
+                <div class="etch__color-box etch__color-box--6"></div>
+                <div class="etch__color-box etch__color-box--7"></div>
+                <div class="etch__color-box etch__color-box--8"></div>
+                <div class="etch__color-box etch__color-box--9"></div>
+                <div class="etch__color-box etch__color-box--10"></div>
+            </div>
         </div>
     </div>
     <div class="etch__images">

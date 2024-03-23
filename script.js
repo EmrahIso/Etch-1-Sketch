@@ -114,11 +114,45 @@ colorBoxContEl.addEventListener('click', e => {
     }
 })
 
-etchFlexContEl.addEventListener('mouseover', colorAndClearGrid)
+let over = false;
+let eTargetEl;
+
+etchFlexContEl.addEventListener('mouseover', e => {
+    over = true;
+    eTargetEl = e.target;
+});
+
+setInterval(() => {
+    if(over) {
+        colorAndClearGrid();
+    }
+    over = false;
+}, 50)
 
 function colorAndClearGrid(e) {
-    let eTargetEl = e.target;
-    if(eTargetEl.className === 'etch__box') {
+    let targetClassListArray = Array.from(eTargetEl.classList);
+    if(opacityModeBtn.className == 'is-used') {
+        if(targetClassListArray.includes('etch__box')) {
+            if(!targetClassListArray.includes('op-20')) {
+                eTargetEl.classList.add('op-20');
+            }  else if(!targetClassListArray.includes('op-40') && targetClassListArray.includes('op-20')) {
+                eTargetEl.classList.add('op-40');
+            } else if(!targetClassListArray.includes('op-60') && targetClassListArray.includes('op-40')) {
+                eTargetEl.classList.add('op-60');
+            } else if(!targetClassListArray.includes('op-80') && targetClassListArray.includes('op-60')) {
+                eTargetEl.classList.add('op-80');
+            } else if(!targetClassListArray.includes('op-100') && targetClassListArray.includes('op-80')) {
+                eTargetEl.classList.add('op-100');
+            }
+        } 
+    } else {
+        eTargetEl.classList.remove('op-20');
+        eTargetEl.classList.remove('op-40');
+        eTargetEl.classList.remove('op-60');
+        eTargetEl.classList.remove('op-80');
+        eTargetEl.classList.remove('op-100');
+    }
+    if(targetClassListArray.includes('etch__box')) {
         if(activateRandomMode){
             let randomNumber = Math.round(Math.random() * 10);
             switch(randomNumber) {
@@ -158,7 +192,6 @@ function colorAndClearGrid(e) {
         clearBtnEl.addEventListener('click', e => {
             activateRandomMode = false;
             eTargetEl.style.backgroundColor = '';
-            e.target.classList.add('is-used');
             currentColor = '';
             colorBoxEls.forEach(colorBoxEl => {
                 colorBoxEl.classList.remove('is-used');
@@ -166,6 +199,15 @@ function colorAndClearGrid(e) {
             opacityModeBtn.classList.remove('is-used');
             customClearBtnEl.classList.remove('is-used');
             randomColorBtnEl.classList.remove('is-used');
+            let etchBoxEls = document.querySelectorAll('.etch__box');
+            etchBoxEls.forEach(etchBoxEl => {
+                etchBoxEl.style.backgroundColor = '';
+                etchBoxEl.classList.remove('op-20');
+                etchBoxEl.classList.remove('op-40');
+                etchBoxEl.classList.remove('op-60');
+                etchBoxEl.classList.remove('op-80');
+                etchBoxEl.classList.remove('op-100');
+            })
         })
         customClearBtnEl.addEventListener('click', e => {
             activateRandomMode = false;
@@ -222,7 +264,7 @@ opacityModeBtn.addEventListener('click', e => {
         colorBoxEl.classList.remove('is-used');
     });
     customClearBtnEl.classList.remove('is-used');
-    currentColor = '';
+    currentColor = 'var(--color-black)';
 })
 
 // !!!!!!!!!! mouseover event napravi sa intervalima

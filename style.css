@@ -11,6 +11,8 @@
     --color-white: #fff;
     --color-white-1: #F1F6F9;
     --color-white-2: #EEF5FF;
+    --color-white-3: #E7E6EB;
+    --color-white-4: #f4f4f5;
     --color-blue-light: #B4D4FF;
     --monaco-red: #E72929;
     --estonia-blue: #19A7CE;
@@ -22,22 +24,159 @@
     --color-orange: #F98404;
     --color-purple: #C67ACE;
     --color-green: #28B5B5;
+    --color-purple-dark: #121117;
+    --color-purple-light: #807C92;
+    --color-grey: #24232b;
+    --color-green-light: #A3FFAE;
+    --color-black-2: #191820;
+    --color-black-3: #23222a;
+
+    /*BOX SHADOW VAR*/
+    --shadow-mini: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.03);
+    --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+    --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
 }
 
 html {
-    overflow-x: hidden;
+    visibility: inherit;
     font-size: 62.5%; /*10PX*/
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: var(--color-purple-dark);
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+button {
+    font-family: inherit;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 1.7fr 1fr;
+    grid-template-rows: 3.5rem 1fr;
+    height: 80vh;
+    gap: 5rem;
+    max-width: 117rem;
+    margin: 0 auto;
+    margin-bottom: 150rem;
+    position: relative;
+    transform: translateY(10%);
+}
+
+.main-heading {
+    color: var(--color-purple-light);
+    font-size: 2.4rem;
+    text-align: center;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layout__group1 {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-grey);
+    padding: 3rem;
+    gap: 2rem;
+    align-self: start;
+}
+
+.layout__group3 {
+    padding: 3rem;
+    background-color: var(--color-grey);
+    align-self: start;
+}
+
+.layout__group1 > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.layout__group1 > div span {
+    color: var(--color-white-3);
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.range-value {
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--color-green-light);
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none; 
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    background: linear-gradient(to right, var(--color-green-light) 16%, var(--color-black-2) 16%);
+    border-radius: 0;
+    height: 6px;
+    margin-bottom: 1rem;
+} 
+
+/* Thumb: webkit browsers*/
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none; 
+    height: 25px;
+    width: 25px;
+    background-color: var(--color-white-3);
+    border-radius: 50%;
+    border: 2px solid var(--color-white-3);
+}
+
+/* Thumb: Firefox */
+input[type="range"]::-moz-range-thumb {
+    height: 25px;
+    width: 25px;
+    background-color: var(--color-white-3);
+    border-radius: 50%;
+    border: 2px solid var(--color-white-3);
+    transition: all .1s ease-in-out;
+}
+
+/* Hover & active Thumb: Webkit */
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: var(--color-black-2);
+    border: 2px solid var(--color-green-light);
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+    background-color: var(--color-black-2);
+    border: 2px solid var(--color-green-light);
+}
+
+/* Hover & active Thumb: Firefox */
+  
+input[type="range"]::-moz-range-thumb:hover {
+    background-color: var(--color-black-2);
+    border: 2px solid var(--color-green-light);
+}
+
+input[type="range"]:active::-moz-range-thumb {
+    background-color: var(--color-black-2);
+    border: 2px solid var(--color-green-light);
 }
 
 .etch__flex-cont {
-    max-width: 48rem;
-    border: 8px solid var(--color-blue-light);
-    background-color: var(--color-white-1);
-    border-radius: 3rem;
+    width: 100%;
+    border: 8px solid var(--color-green-light);
+    background-color: var(--color-white-4);
     margin: 0 auto;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    box-shadow: var(--shadow-dark);
 }
 
 .etch__flex-row {
@@ -52,58 +191,92 @@ html {
     cursor: cell;
 }
 
+.range-btn {
+    border: none;
+    background-color: var(--color-green-light);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    font-weight: 500;
+    font-size: 1.6rem;
+    border: 2px solid var(--color-green-light);
+    cursor: pointer;
+}
+
+.range-btn-icon,
+.range-btn {
+    color: var(--color-black-3);
+    transition: all 0.2s ease-in-out;
+}
+
+.range-btn:hover,
+.range-btn:active,
+.range-btn:hover .range-btn-icon,
+.range-btn:active .range-btn-icon  {
+    background-color: transparent;
+    color: var(--color-green-light);
+}
+
+.etch__color-heading {
+    color: var(--color-white-3);
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
 .etch__colors {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr)
 }
 
 .etch__color-box {
-    padding: 5rem;
-}
-
-.etch__color-box--1 {
-    background-color: var(--monaco-red);
-}
-
-.etch__color-box--2 {
-    background-color: var(--estonia-blue);
-}
-
-.etch__color-box--3 {
-    background-color: var(--estonia-black);
-}
-
-.etch__color-box--4 {
-    background-color: var(--finland-blue);
-}
-
-.etch__color-box--5 {
-    background-color: var(--czech-red);
-}
-
-.etch__color-box--6 {
-    background-color: var(--uk-dark-blue);
+    height: 5rem;
 }
 
 .etch__color-box--7 {
-    background-color: var(--color-yellow);
+    background-color: var(--monaco-red);
 }
 
-.etch__color-box--8 {
-    background-color: var(--color-orange);
+.etch__color-box--4 {
+    background-color: var(--estonia-blue);
 }
 
-.etch__color-box--9 {
-    background-color: var(--color-purple);
+.etch__color-box--1 {
+    background-color: var(--estonia-black);
+}
+
+.etch__color-box--3 {
+    background-color: var(--finland-blue);
+}
+
+.etch__color-box--6 {
+    background-color: var(--czech-red);
+}
+
+.etch__color-box--2 {
+    background-color: var(--uk-dark-blue);
 }
 
 .etch__color-box--10 {
-    background-color: var(--color-green);
+    background-color: var(--color-yellow);
 }
 
-.etch__colors {
-    margin-bottom: 150rem;
+.etch__color-box--9 {
+    background-color: var(--color-orange);
+}
+
+.etch__color-box--8 {
+    background-color: var(--color-purple);
+}
+
+.etch__color-box--5 {
+    background-color: var(--color-green);
 }
 
 .is-used {
@@ -131,3 +304,5 @@ html {
 .op-100 {
     opacity: 100%;
 }
+
+/* You have not set box-shadow on any element. Do it when you have enough free time.*/

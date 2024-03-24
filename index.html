@@ -11,22 +11,25 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <h1 class="main-heading">Etch-a-Sketch Game</h1>
     <div class="layout">
+        <h1 class="main-heading">Etch-a-Sketch Game</h1>
         <div class="layout__group1">
             <div>
                 <span>Grid</span>
                 <p class="range-value">16 x 16</p>
             </div>
             <input type="range" max="100" min="2" value="16" class="range-input">
-            <button class="range-btn" type="submit">Create</button>
-            <button id="etch__clearBtn">Clear</button>
-            <button id="etch__random-colorBtn">Random Color</button>
-            <button id="etch__custom-clearBtn">Custom Clear</button>
-            <button id="etch__opacityBtn">Opacity Mode</button>
+            <button class="range-btn" type="submit">Generate <ion-icon name="arrow-forward-outline" class="range-btn-icon"></ion-icon></button>
+            <div class="game-modes">
+                <button id="etch__clearBtn">Clear</button>
+                <button id="etch__random-colorBtn">Random Color</button>
+                <button id="etch__custom-clearBtn">Custom Clear</button>
+                <button id="etch__opacityBtn">Opacity Mode</button>
+            </div>
         </div>
         <div class="etch__flex-cont" oncontextmenu="return false;"></div>
         <div class="layout__group3">
+            <h3 class="etch__color-heading">Color Palette</h3>
             <div class="etch__colors">
                 <div class="etch__color-box etch__color-box--1"></div>
                 <div class="etch__color-box etch__color-box--2"></div>
@@ -49,5 +52,7 @@
         <img src="./images/UK.png" alt="flag">
     </div>
     <script src="./script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

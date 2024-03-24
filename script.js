@@ -13,8 +13,10 @@ createGrid(16);
 
 // Changing value of rangeValueEl
 
-rangeInputEl.addEventListener('change', e => {
+rangeInputEl.addEventListener('input', e => {
     rangeValueEl.textContent = `${e.target.value} x ${e.target.value}`;
+    let rangeValue = e.target.value;
+    e.target.style.background = `linear-gradient(to right, var(--color-green-light) ${rangeValue}%, var(--color-black-2) ${rangeValue}%)`;
 })
 
 
@@ -40,10 +42,18 @@ function createGrid(range){
     })
 }
 
-//Adjusting height of etchFlexContEl
+// Adjusting height of etchFlexContEl
 
 const etchFlexContElWidth = etchFlexContEl.offsetWidth;
 etchFlexContEl.style.height = `${etchFlexContElWidth}px`;
+
+//Adjusting height of etch__color-box
+
+const colorBoxEls = document.querySelectorAll('.etch__color-box');
+colorBoxEls.forEach(colorBoxEl => {
+    let colorBoxElWidth = colorBoxEl.offsetWidth;
+    colorBoxEl.style.height = `${colorBoxElWidth}px`;
+})
 
 // Opacity Mode *1
 
@@ -62,7 +72,6 @@ const customClearBtnEl = document.getElementById('etch__custom-clearBtn');
 const clearBtnEl = document.querySelector('#etch__clearBtn');
 
 const colorBoxContEl = document.querySelector('.etch__colors');
-const colorBoxEls = document.querySelectorAll('.etch__color-box');
 let currentColor = '';
 
 colorBoxContEl.addEventListener('click', e => {
@@ -81,34 +90,34 @@ colorBoxContEl.addEventListener('click', e => {
     const colorIdentifier = e.target.className.split(' ')[1];
     switch(colorIdentifier) {
         case 'etch__color-box--1':
-            currentColor = 'var(--monaco-red)';
-        break;
-        case 'etch__color-box--2':
-            currentColor = 'var(--estonia-blue)';
-        break;
-        case 'etch__color-box--3':
             currentColor = 'var(--estonia-black)';
         break;
-        case 'etch__color-box--4':
-            currentColor = 'var(--finland-blue)';
-        break;
-        case 'etch__color-box--5':
-            currentColor = 'var(--czech-red)';
-        break;
-        case 'etch__color-box--6':
+        case 'etch__color-box--2':
             currentColor = 'var(--uk-dark-blue)';
         break;
+        case 'etch__color-box--3':
+            currentColor = 'var(--finland-blue)';
+        break;
+        case 'etch__color-box--4':
+            currentColor = 'var(--estonia-blue)';
+        break;
+        case 'etch__color-box--5':
+            currentColor = 'var(--color-green)';
+        break;
+        case 'etch__color-box--6':
+            currentColor = 'var(--czech-red)';
+        break;
         case 'etch__color-box--7':
-            currentColor = 'var(--color-yellow)';
+            currentColor = 'var(--monaco-red)';
         break;
         case 'etch__color-box--8':
-            currentColor = 'var(--color-orange)';
-        break;
-        case 'etch__color-box--9':
             currentColor = 'var(--color-purple)';
         break;
+        case 'etch__color-box--9':
+            currentColor = 'var(--color-orange)';
+        break;
         case 'etch__color-box--10':
-            currentColor = 'var(--color-green)';
+            currentColor = 'var(--color-yellow)';
         break;
     }
 })
@@ -164,7 +173,7 @@ function colorAndClearGrid(e) {
                 case 3:
                     currentColor = 'var(--estonia-black)';
                 break;
-                case 3:
+                case 4:
                     currentColor = 'var(--finland-blue)';
                 break;
                 case 5:

@@ -72,7 +72,7 @@ const customClearBtnEl = document.getElementById('etch__custom-clearBtn');
 const clearBtnEl = document.querySelector('#etch__clearBtn');
 
 const colorBoxContEl = document.querySelector('.etch__colors');
-let currentColor = '';
+let currentColor = 'var(--estonia-black)';
 
 colorBoxContEl.addEventListener('click', e => {
     colorBoxEls.forEach(colorBoxEl => {
@@ -91,36 +91,48 @@ colorBoxContEl.addEventListener('click', e => {
     switch(colorIdentifier) {
         case 'etch__color-box--1':
             currentColor = 'var(--estonia-black)';
+            e.target.style.outline = '3px solid var(--estonia-black)';
         break;
         case 'etch__color-box--2':
             currentColor = 'var(--uk-dark-blue)';
+            e.target.style.outline = '3px solid var(--uk-dark-blue)';
         break;
         case 'etch__color-box--3':
             currentColor = 'var(--finland-blue)';
+            e.target.style.outline = '3px solid var(--finland-blue)';
         break;
         case 'etch__color-box--4':
             currentColor = 'var(--estonia-blue)';
+            e.target.style.outline = '3px solid var(--estonia-blue)';
         break;
         case 'etch__color-box--5':
             currentColor = 'var(--color-green)';
+            e.target.style.outline = '3px solid var(--color-green)';
         break;
         case 'etch__color-box--6':
             currentColor = 'var(--czech-red)';
+            e.target.style.outline = '3px solid var(--czech-red)';
         break;
         case 'etch__color-box--7':
             currentColor = 'var(--monaco-red)';
+            e.target.style.outline = '3px solid var(--monaco-red)';
         break;
         case 'etch__color-box--8':
             currentColor = 'var(--color-purple)';
+            e.target.style.outline = '3px solid var(--color-purple)';
         break;
         case 'etch__color-box--9':
             currentColor = 'var(--color-orange)';
+            e.target.style.outline = '3px solid var(--color-orange)';
         break;
         case 'etch__color-box--10':
             currentColor = 'var(--color-yellow)';
+            e.target.style.outline = '3px solid var(--color-yellow)';
         break;
     }
 })
+
+// Set color to etch__box elements
 
 let over = false;
 let eTargetEl;
@@ -135,29 +147,44 @@ setInterval(() => {
         colorAndClearGrid();
     }
     over = false;
-}, 50)
+}, 35)
 
 function colorAndClearGrid(e) {
     let targetClassListArray = Array.from(eTargetEl.classList);
     if(opacityModeBtn.className == 'is-used') {
         if(targetClassListArray.includes('etch__box')) {
-            if(!targetClassListArray.includes('op-20')) {
+            if(!targetClassListArray.includes('op-10')) {
+                eTargetEl.classList.add('op-10');
+            }  else if(!targetClassListArray.includes('op-20') && targetClassListArray.includes('op-10')) {
                 eTargetEl.classList.add('op-20');
-            }  else if(!targetClassListArray.includes('op-40') && targetClassListArray.includes('op-20')) {
+            } else if(!targetClassListArray.includes('op-30') && targetClassListArray.includes('op-20')) {
+                eTargetEl.classList.add('op-30');
+            } else if(!targetClassListArray.includes('op-40') && targetClassListArray.includes('op-30')) {
                 eTargetEl.classList.add('op-40');
-            } else if(!targetClassListArray.includes('op-60') && targetClassListArray.includes('op-40')) {
+            } else if(!targetClassListArray.includes('op-50') && targetClassListArray.includes('op-40')) {
+                eTargetEl.classList.add('op-50');
+            } else if(!targetClassListArray.includes('op-60') && targetClassListArray.includes('op-50')) {
                 eTargetEl.classList.add('op-60');
-            } else if(!targetClassListArray.includes('op-80') && targetClassListArray.includes('op-60')) {
+            } else if(!targetClassListArray.includes('op-70') && targetClassListArray.includes('op-60')) {
+                eTargetEl.classList.add('op-70');
+            } else if(!targetClassListArray.includes('op-80') && targetClassListArray.includes('op-70')) {
                 eTargetEl.classList.add('op-80');
-            } else if(!targetClassListArray.includes('op-100') && targetClassListArray.includes('op-80')) {
+            } else if(!targetClassListArray.includes('op-90') && targetClassListArray.includes('op-80')) {
+                eTargetEl.classList.add('op-90');
+            } else if(!targetClassListArray.includes('op-100') && targetClassListArray.includes('op-90')) {
                 eTargetEl.classList.add('op-100');
             }
         } 
     } else {
+        eTargetEl.classList.remove('op-10');
         eTargetEl.classList.remove('op-20');
+        eTargetEl.classList.remove('op-30');
         eTargetEl.classList.remove('op-40');
+        eTargetEl.classList.remove('op-50');
         eTargetEl.classList.remove('op-60');
+        eTargetEl.classList.remove('op-70');
         eTargetEl.classList.remove('op-80');
+        eTargetEl.classList.remove('op-90');
         eTargetEl.classList.remove('op-100');
     }
     if(targetClassListArray.includes('etch__box')) {
@@ -197,41 +224,85 @@ function colorAndClearGrid(e) {
             }
         }
         eTargetEl.style.backgroundColor = `${currentColor}`;
-        clearBtnEl.addEventListener('click', e => {
-            activateRandomMode = false;
-            eTargetEl.style.backgroundColor = '';
-            currentColor = '';
-            colorBoxEls.forEach(colorBoxEl => {
-                colorBoxEl.classList.remove('is-used');
-            })
-            opacityModeBtn.classList.remove('is-used');
-            customClearBtnEl.classList.remove('is-used');
-            randomColorBtnEl.classList.remove('is-used');
-            let etchBoxEls = document.querySelectorAll('.etch__box');
-            etchBoxEls.forEach(etchBoxEl => {
-                etchBoxEl.style.backgroundColor = '';
-                etchBoxEl.classList.remove('op-20');
-                etchBoxEl.classList.remove('op-40');
-                etchBoxEl.classList.remove('op-60');
-                etchBoxEl.classList.remove('op-80');
-                etchBoxEl.classList.remove('op-100');
-            })
-        })
-        customClearBtnEl.addEventListener('click', e => {
-            activateRandomMode = false;
-            e.target.classList.add('is-used');
-            clearBtnEl.classList.remove('is-used');
-            randomColorBtnEl.classList.remove('is-used');
-            opacityModeBtn.classList.remove('is-used');
-            colorBoxEls.forEach(colorBoxEl => {
-                colorBoxEl.classList.remove('is-used');
-            })
-            currentColor = 'transparent';
-        })
     }
 }
 
+// Clear Mode 
+
+function clearBtnFunc(e) {
+    activateRandomMode = false;
+    currentColor = '';
+    colorBoxEls.forEach(colorBoxEl => {
+        colorBoxEl.classList.remove('is-used');
+    })
+    opacityModeBtn.classList.remove('is-used');
+    customClearBtnEl.classList.remove('is-used');
+    randomColorBtnEl.classList.remove('is-used');
+    let etchBoxEls = document.querySelectorAll('.etch__box');
+    etchBoxEls.forEach(etchBoxEl => {
+        etchBoxEl.style.backgroundColor = '';
+        etchBoxEl.classList.remove('op-10');
+        etchBoxEl.classList.remove('op-20');
+        etchBoxEl.classList.remove('op-30');
+        etchBoxEl.classList.remove('op-40');
+        etchBoxEl.classList.remove('op-50');
+        etchBoxEl.classList.remove('op-60');
+        etchBoxEl.classList.remove('op-70');
+        etchBoxEl.classList.remove('op-80');
+        etchBoxEl.classList.remove('op-90');
+        etchBoxEl.classList.remove('op-100');
+    })
+}
+
+// Custom Btn Mode
+
+function customBtnFunc(e) {
+    activateRandomMode = false;
+    e.target.classList.add('is-used');
+    clearBtnEl.classList.remove('is-used');
+    randomColorBtnEl.classList.remove('is-used');
+    opacityModeBtn.classList.remove('is-used');
+    colorBoxEls.forEach(colorBoxEl => {
+        colorBoxEl.classList.remove('is-used');
+    })
+    currentColor = 'transparent';
+}
+
+
+
+// Random Color *2
+
+function randomColorFunc(e) {
+    activateRandomMode = true;
+    e.target.classList.add('is-used');
+    clearBtnEl.classList.remove('is-used');
+    opacityModeBtn.classList.remove('is-used');
+    colorBoxEls.forEach(colorBoxEl => {
+        colorBoxEl.classList.remove('is-used');
+    });
+    customClearBtnEl.classList.remove('is-used');
+}
+
+// Opacity Mode *2
+
+function opacityModeFunc(e) {
+    e.target.classList.add('is-used');
+    activateRandomMode = false;
+    randomColorBtnEl.classList.remove('is-used');
+    clearBtnEl.classList.remove('is-used');
+    colorBoxEls.forEach(colorBoxEl => {
+        colorBoxEl.classList.remove('is-used');
+    });
+    customClearBtnEl.classList.remove('is-used');
+    currentColor = 'var(--color-black)';
+}
+
+//Events
+
 // Removing class when click on whitespace
+
+clearBtnEl.addEventListener('click', clearBtnFunc);
+customClearBtnEl.addEventListener('click', customBtnFunc);
 
 document.addEventListener('click', e => {
     let classArray = Array.from(e.target.classList);
@@ -248,29 +319,5 @@ document.addEventListener('click', e => {
     }
 })
 
-// Random Color *2
-
-randomColorBtnEl.addEventListener('click', e => {
-    activateRandomMode = true;
-    e.target.classList.add('is-used');
-    clearBtnEl.classList.remove('is-used');
-    opacityModeBtn.classList.remove('is-used');
-    colorBoxEls.forEach(colorBoxEl => {
-        colorBoxEl.classList.remove('is-used');
-    });
-    customClearBtnEl.classList.remove('is-used');
-});
-
-// Opacity Mode *2
-
-opacityModeBtn.addEventListener('click', e => {
-    e.target.classList.add('is-used');
-    activateRandomMode = false;
-    randomColorBtnEl.classList.remove('is-used');
-    clearBtnEl.classList.remove('is-used');
-    colorBoxEls.forEach(colorBoxEl => {
-        colorBoxEl.classList.remove('is-used');
-    });
-    customClearBtnEl.classList.remove('is-used');
-    currentColor = 'var(--color-black)';
-})
+randomColorBtnEl.addEventListener('click', randomColorFunc);
+opacityModeBtn.addEventListener('click', opacityModeFunc);

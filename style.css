@@ -30,8 +30,10 @@
     --color-green-light: #A3FFAE;
     --color-black-2: #191820;
     --color-black-3: #23222a;
+    --color-black-4: #504f55;
 
     /*BOX SHADOW VAR*/
+    --shadow-ultra-mini: 0 1rem 2.5rem rgba(0, 0, 0, 0.03);
     --shadow-mini: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.03);
     --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
     --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
@@ -49,6 +51,7 @@ body {
     font-family: "JetBrains Mono", monospace;
     font-optical-sizing: auto;
     font-style: normal;
+    padding: 0 2.5rem;
 }
 
 button {
@@ -57,15 +60,11 @@ button {
 
 .layout {
     display: grid;
-    grid-template-columns: 1fr 1.7fr 1fr;
+    grid-template-columns: 1fr 1.35fr 1fr;
     grid-template-rows: 3.5rem 1fr;
-    height: 80vh;
     gap: 5rem;
     max-width: 117rem;
-    margin: 0 auto;
-    margin-bottom: 150rem;
-    position: relative;
-    transform: translateY(10%);
+    margin: 7.5rem auto 0 auto;
 }
 
 .main-heading {
@@ -84,13 +83,16 @@ button {
     background-color: var(--color-grey);
     padding: 3rem;
     gap: 2rem;
-    align-self: start;
+    box-shadow: var(--shadow-mini);
 }
 
 .layout__group3 {
     padding: 3rem;
     background-color: var(--color-grey);
-    align-self: start;
+    box-shadow: var(--shadow-mini);
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;*/
 }
 
 .layout__group1 > div {
@@ -120,7 +122,7 @@ input[type="range"] {
     background: linear-gradient(to right, var(--color-green-light) 16%, var(--color-black-2) 16%);
     border-radius: 0;
     height: 6px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 } 
 
 /* Thumb: webkit browsers*/
@@ -204,6 +206,7 @@ input[type="range"]:active::-moz-range-thumb {
     font-size: 1.6rem;
     border: 2px solid var(--color-green-light);
     cursor: pointer;
+    box-shadow: var(--shadow-ultra-mini);
 }
 
 .range-btn-icon,
@@ -220,23 +223,27 @@ input[type="range"]:active::-moz-range-thumb {
     color: var(--color-green-light);
 }
 
-.etch__color-heading {
-    color: var(--color-white-3);
-    font-size: 2rem;
-    font-weight: 500;
-    margin-bottom: 2rem;
-}
-
 .etch__colors {
     display: flex;
     flex-direction: column;
     gap: 3rem;
     display: grid;
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(10, 1fr);
+    grid-column: 1 / -1;
+    margin-top: 2.5rem;
+    background-color: var(--color-grey);
+    padding: 3rem;
+    box-shadow: var(--shadow-mini);
 }
 
 .etch__color-box {
     height: 5rem;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.etch__color-box:hover {
+    transform: scale(1.05);
 }
 
 .etch__color-box--7 {
@@ -280,29 +287,86 @@ input[type="range"]:active::-moz-range-thumb {
 }
 
 .is-used {
-    outline-offset: 25px;
-    outline: 5px solid var(--czech-red);
-    transition: all 0.3s;
+    outline-offset: 15px;
+    transform: scale(1.05);
+    outline: 3px solid var(--color-green-light);
+    transition: all .3s;
+}
+
+.op-10 {
+    opacity: 10%
 }
 
 .op-20 {
     opacity: 20%
 }
 
+.op-30 {
+    opacity: 30%
+}
+
 .op-40 {
     opacity: 40%;
+}
+
+.op-50 {
+    opacity: 50%
 }
 
 .op-60 {
     opacity: 60%;
 }
 
+.op-70 {
+    opacity: 70%
+}
+
 .op-80 {
     opacity: 80%;
+}
+
+.op-90 {
+    opacity: 90%
 }
 
 .op-100 {
     opacity: 100%;
 }
 
-/* You have not set box-shadow on any element. Do it when you have enough free time.*/
+
+.game-modes {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.game-modes > button {
+    color: var(--color-white);
+    background-color: var(--color-grey);
+    border: 4px solid var(--color-green-light);
+    font-size: 1.6rem;
+    padding: 2rem;
+    cursor: pointer;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.game-modes > button:hover {
+    transform: scale(1.05);
+}
+
+.attribution {
+    margin-top: auto;
+    list-style: none;
+}
+
+.attribution li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.attribution a:link,
+.attribution a:visited {
+    color: var(--color-green-light);
+    display: inline;
+}

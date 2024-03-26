@@ -42,19 +42,7 @@ function createGrid(range){
     })
 }
 
-// Adjusting height of etchFlexContEl
-
-const etchFlexContElWidth = etchFlexContEl.offsetWidth;
-etchFlexContEl.style.height = `${etchFlexContElWidth}px`;
-
-//Adjusting height of etch__color-box
-
 const colorBoxEls = document.querySelectorAll('.etch__color-box');
-colorBoxEls.forEach(colorBoxEl => {
-    let colorBoxElWidth = colorBoxEl.offsetWidth;
-    colorBoxEl.style.height = `${colorBoxElWidth}px`;
-})
-
 // Opacity Mode *1
 
 const opacityModeBtn = document.querySelector('#etch__opacityBtn');

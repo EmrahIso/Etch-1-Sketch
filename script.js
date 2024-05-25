@@ -78,44 +78,44 @@ colorBoxContEl.addEventListener('click', e => {
     const colorIdentifier = e.target.className.split(' ')[1];
     switch(colorIdentifier) {
         case 'etch__color-box--1':
-            currentColor = 'var(--estonia-black)';
-            e.target.style.outline = '3px solid var(--estonia-black)';
+            currentColor = 'var(--color-red)';
+            e.target.style.outline = '3px solid var(--color-red)';
         break;
         case 'etch__color-box--2':
-            currentColor = 'var(--uk-dark-blue)';
-            e.target.style.outline = '3px solid var(--uk-dark-blue)';
+            currentColor = 'var(--color-orange)';
+            e.target.style.outline = '3px solid var(--color-orange)';
         break;
         case 'etch__color-box--3':
-            currentColor = 'var(--finland-blue)';
-            e.target.style.outline = '3px solid var(--finland-blue)';
+            currentColor = 'var(--color-brown)';
+            e.target.style.outline = '3px solid var(--color-brown)';
         break;
         case 'etch__color-box--4':
-            currentColor = 'var(--estonia-blue)';
-            e.target.style.outline = '3px solid var(--estonia-blue)';
+            currentColor = 'var(--color-yellow)';
+            e.target.style.outline = '3px solid var(--color-yellow)';
         break;
         case 'etch__color-box--5':
             currentColor = 'var(--color-green)';
             e.target.style.outline = '3px solid var(--color-green)';
         break;
         case 'etch__color-box--6':
-            currentColor = 'var(--czech-red)';
-            e.target.style.outline = '3px solid var(--czech-red)';
+            currentColor = 'var(--color-turquoise)';
+            e.target.style.outline = '3px solid var(--color-turquoise)';
         break;
         case 'etch__color-box--7':
-            currentColor = 'var(--monaco-red)';
-            e.target.style.outline = '3px solid var(--monaco-red)';
+            currentColor = 'var(--color-blue)';
+            e.target.style.outline = '3px solid var(--color-blue)';
         break;
         case 'etch__color-box--8':
             currentColor = 'var(--color-purple)';
             e.target.style.outline = '3px solid var(--color-purple)';
         break;
         case 'etch__color-box--9':
-            currentColor = 'var(--color-orange)';
-            e.target.style.outline = '3px solid var(--color-orange)';
+            currentColor = 'var(--color-pink)';
+            e.target.style.outline = '3px solid var(--color-pink)';
         break;
         case 'etch__color-box--10':
-            currentColor = 'var(--color-yellow)';
-            e.target.style.outline = '3px solid var(--color-yellow)';
+            currentColor = 'var(--color-grey-light)';
+            e.target.style.outline = '3px solid var(--color-grey-light)';
         break;
     }
 })
@@ -180,34 +180,34 @@ function colorAndClearGrid(e) {
             let randomNumber = Math.round(Math.random() * 10);
             switch(randomNumber) {
                 case 1:
-                    currentColor = 'var(--monaco-red)';
+                    currentColor = 'var(--color-red)';
                 break;
                 case 2:
-                    currentColor = 'var(--estonia-blue)';
-                break;
-                case 3:
-                    currentColor = 'var(--estonia-black)';
-                break;
-                case 4:
-                    currentColor = 'var(--finland-blue)';
-                break;
-                case 5:
-                    currentColor = 'var(--czech-red)';
-                break;
-                case 6:
-                    currentColor = 'var(--uk-dark-blue)';
-                break;
-                case 7:
-                    currentColor = 'var(--color-yellow)';
-                break;
-                case 8:
                     currentColor = 'var(--color-orange)';
                 break;
-                case 9:
+                case 3:
+                    currentColor = 'var(--color-brown)';
+                break;
+                case 4:
+                    currentColor = 'var(--color-yellow)';
+                break;
+                case 5:
+                    currentColor = 'var(--color-green)';
+                break;
+                case 6:
+                    currentColor = 'var(--color-turquoise)';
+                break;
+                case 7:
+                    currentColor = 'var(--color-blue)';
+                break;
+                case 8:
                     currentColor = 'var(--color-purple)';
                 break;
+                case 9:
+                    currentColor = 'var(--color-pink)';
+                break;
                 case 10:
-                    currentColor = 'var(--color-green)';
+                    currentColor = 'var(--color-grey-light)';
                 break;
             }
         }

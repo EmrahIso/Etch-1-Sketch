@@ -14,16 +14,6 @@
     --color-white-3: #E7E6EB;
     --color-white-4: #f4f4f5;
     --color-blue-light: #B4D4FF;
-    --monaco-red: #E72929;
-    --estonia-blue: #19A7CE;
-    --estonia-black: #181823;
-    --finland-blue: #22668D;
-    --czech-red: #C21010;
-    --uk-dark-blue: #233E8B;
-    --color-yellow: #F7FD04;
-    --color-orange: #F98404;
-    --color-purple: #C67ACE;
-    --color-green: #28B5B5;
     --color-purple-dark: #121117;
     --color-purple-light: #807C92;
     --color-grey: #24232b;
@@ -31,6 +21,17 @@
     --color-black-2: #191820;
     --color-black-3: #23222a;
     --color-black-4: #504f55;
+
+    --color-red: #ff3737;
+    --color-orange: #ff8337;
+    --color-brown: #C29867;
+    --color-yellow: #ffe272;
+    --color-green: #9de16f;
+    --color-turquoise: #36d8b7;
+    --color-blue: #53afff;
+    --color-purple: #de6fff;
+    --color-pink: #ff74bc;
+    --color-grey-light: #bccdde;
 
     /*BOX SHADOW VAR*/
     --shadow-ultra-mini: 0 1rem 2.5rem rgba(0, 0, 0, 0.03);
@@ -245,44 +246,44 @@ input[type="range"]:active::-moz-range-thumb {
     transform: scale(1.05);
 }
 
-.etch__color-box--7 {
-    background-color: var(--monaco-red);
-}
-
-.etch__color-box--4 {
-    background-color: var(--estonia-blue);
-}
-
 .etch__color-box--1 {
-    background-color: var(--estonia-black);
-}
-
-.etch__color-box--3 {
-    background-color: var(--finland-blue);
-}
-
-.etch__color-box--6 {
-    background-color: var(--czech-red);
+    background-color: var(--color-red);
 }
 
 .etch__color-box--2 {
-    background-color: var(--uk-dark-blue);
+    background-color: var(--color-orange);
 }
 
-.etch__color-box--10 {
+.etch__color-box--3 {
+    background-color: var(--color-brown);
+}
+
+.etch__color-box--4 {
     background-color: var(--color-yellow);
 }
 
-.etch__color-box--9 {
-    background-color: var(--color-orange);
+.etch__color-box--5 {
+    background-color: var(--color-green);
+}
+
+.etch__color-box--6 {
+    background-color: var(--color-turquoise);
+}
+
+.etch__color-box--7 {
+    background-color: var(--color-blue);
 }
 
 .etch__color-box--8 {
     background-color: var(--color-purple);
 }
 
-.etch__color-box--5 {
-    background-color: var(--color-green);
+.etch__color-box--9 {
+    background-color: var(--color-pink);
+}
+
+.etch__color-box--10 {
+    background-color: var(--color-grey-light);
 }
 
 .is-used {
